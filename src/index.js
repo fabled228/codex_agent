@@ -3,15 +3,17 @@ const cron = require('node-cron');
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-cron.schedule(`* ${process.env.MINUTES} * * *`, () => {
-  fs.readdir(path, (err, files) => {
+console.log(process.env);
+cron.schedule(`*/20 * * * * *`, () => {
+  fs.readdir(process.env.PATH_NGINX, (err, projects) => {
+    console.log(err);
     if (err) {
       return err
     };
     fetch(process.env.URL, {
       method: 'post',
-      body: JSON.stringify(files),
+      body: JSON.stringify({projects, serverName: 'test'}),
       headers: { 'Content-Type': 'application/json' },
-    });
+    }).then(res => res.json()).then(data => console.log(data));
   });
 });
