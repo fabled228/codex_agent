@@ -3,11 +3,10 @@ const cron = require('node-cron');
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-console.log(process.env);
 cron.schedule(`*/20 * * * * *`, () => {
   fs.readdir(process.env.PATH_NGINX, (err, projects) => {
-    console.log(err);
     if (err) {
+      console.log(err);
       return err
     };
     fetch(process.env.URL, {
