@@ -1,0 +1,26 @@
+{
+  "name": "codex_agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pkg src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabled228/codex_agent.git"
+  },
+  "author": "Artem Fabl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabled228/codex_agent/issues"
+  },
+  "homepage": "https://github.com/fabled228/codex_agent#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "g": "^2.0.1",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.1",
+    "pkg": "^4.4.9"
+  }
+}
